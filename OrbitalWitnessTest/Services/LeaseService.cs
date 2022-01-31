@@ -29,6 +29,11 @@ namespace OrbitalWitnessTest.Services
             return MappingHelper.MapRepositoryToLeaseScheduleModel(newSchedule);
         }
 
+        public LeaseScheduleModel GetLeaseScheduleById(int id)
+        {
+            return MappingHelper.MapRepositoryToLeaseScheduleModel(_leasesScheduleRepository.GetLeasesScheduleById(id));
+        }
+
         private ScheduleOfLeaseModel GetScheduleOfLeaseData(List<string> entryText)
         {
             var scheduleOfLease = new ScheduleOfLeaseModel();
@@ -150,9 +155,6 @@ namespace OrbitalWitnessTest.Services
             }
         }
 
-        public LeaseScheduleModel GetLeaseScheduleById(int id)
-        {
-            return MappingHelper.MapRepositoryToLeaseScheduleModel(_leasesScheduleRepository.GetLeasesScheduleById(id));
-        }
+
     }
 }

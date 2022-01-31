@@ -38,7 +38,7 @@ namespace OrbitalWitnessTest.Helpers
         {
             return new LeaseScheduleModel
             {
-                ScheduleEntry = model.ScheduleEntries.Select(x => MapRepositoryToScheduleEntryModel(x)).ToList(),
+                ScheduleEntry = model.ScheduleEntries != null ? model.ScheduleEntries.Select(x => MapRepositoryToScheduleEntryModel(x)).ToList() : null,
                 ScheduleType = model.ScheduleType
             };
         }
@@ -49,7 +49,7 @@ namespace OrbitalWitnessTest.Helpers
                 EntryDate = model.EntryDate,
                 EntryNumber = model.EntryNumber.ToString(),
                 EntryType = model.EntryType,
-                ScheduleOfLease = MapRepositoryToScheduleOfLeaseModel(model.ScheduleData),
+                ScheduleOfLease = model.ScheduleData != null ? MapRepositoryToScheduleOfLeaseModel(model.ScheduleData) : null,
             };
         }
         public static ScheduleOfLeaseModel MapRepositoryToScheduleOfLeaseModel(ScheduleData model)
